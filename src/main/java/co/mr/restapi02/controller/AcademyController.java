@@ -26,5 +26,9 @@ public class AcademyController {
         return academyMapper.getAcademies();
     }
 
+    @GetMapping("/{id}")
+    public Academy getById(@PathVariable("id") int id){
+        return academyMapper.getById(id);
+    }
 
 }
