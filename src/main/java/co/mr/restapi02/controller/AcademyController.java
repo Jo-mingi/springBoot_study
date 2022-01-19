@@ -2,6 +2,7 @@ package co.mr.restapi02.controller;
 
 import co.mr.restapi02.mapper.AcademyMapper;
 import co.mr.restapi02.model.Academy;
+import co.mr.restapi02.service.AcademyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,9 @@ public class AcademyController {
     @Autowired
     private AcademyMapper academyMapper;
 
+    @Autowired
+    private AcademyService academyService;
+
     @PostMapping("")
     // 파라미터를 requestBody로 전달하도록 설정
     public Academy post(@RequestBody Academy academy){
@@ -23,7 +27,8 @@ public class AcademyController {
 
     @GetMapping("")
     public List<Academy> getAcademies(){
-        return academyMapper.getAcademies();
+//        return academyMapper.getAcademies();
+        return academyService.getAcademies();
     }
 
     @GetMapping("/{id}")
